@@ -1,17 +1,17 @@
 n,k = gets.chomp.split.map(&:to_i)
 a = gets.chomp.split.map(&:to_i)
-ans = Array.new(n)
-
-while k != 0 do
-  if k >= n
-    ans = ans.map{|i| i+1}
-    k -= n
-  else
-    for i in 0..k-1 do
-      ans[i] += 1
-    end
-    k = 0
-  end
+a_sort = a.sort
+hash = Hash.new
+n.times do |i|
+  hash[a[i]] = 0
+end
+v = k/n
+k %= n
+for i in 0..k-1 do
+  hash[a_sort[i]] += 1
 end
 
-p ans
+
+n.times do |i|
+  p v + hash[a[i]]
+end
