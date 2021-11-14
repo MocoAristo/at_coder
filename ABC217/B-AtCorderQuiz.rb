@@ -1,0 +1,5 @@
+arr = ["ABC", "ARC", "AGC", "AHC"]
+3.times do
+  arr.delete(gets.chomp)
+end
+puts arr
